@@ -14,9 +14,8 @@ module.exports = {
     // we have to call controllers.messages.getAll & .create
     console.log(models.messages.getAll, '<- getAll');
     models.messages.getAll((rows) => {
-
+      response.end(JSON.stringify(rows));
     });
-    response.end();
   }, // a function which handles a get request for all messages
   post: function (req, res) {} // a function which handles posting a message to the database
 };
