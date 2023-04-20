@@ -8,3 +8,16 @@ var mysql = require('mysql2');
 // user: 'root', password: 'some_password_you_created_at_install'
 
 
+const connection = mysql.createConnection({
+  password: '',
+  user: 'root',
+  database: 'chat'
+});
+
+connection.query(
+  'SELECT * FROM `users`',
+  function(err, results, fields) {
+    console.log(results); // results contains rows returned by server
+    // console.log(fields); // fields contains extra meta data about results, if available
+  }
+);
