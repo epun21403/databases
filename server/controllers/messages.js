@@ -17,5 +17,14 @@ module.exports = {
       response.end(JSON.stringify(rows));
     });
   }, // a function which handles a get request for all messages
-  post: function (req, res) {} // a function which handles posting a message to the database
+  post: function (req, res) {
+    models.messages.create(req.body, function(err) {
+      if (err) {
+        throw err;
+      } else {
+        res.status(201);
+        res.end('success on writing message');
+      }
+    });
+  } // a function which handles posting a message to the database
 };

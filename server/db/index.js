@@ -14,9 +14,7 @@ const connection = mysql.createConnection({
   database: 'chat'
 });
 
-connection.query(
-  'SELECT * FROM `users`',
-  function(err, results, fields) {
-    console.log(results);
-  }
-);
+
+
+// module.exports.connection = connection;
+module.exports = connection;
