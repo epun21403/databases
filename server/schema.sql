@@ -5,18 +5,16 @@ USE chat;
 
 CREATE TABLE users (
   id INT NOT NULL AUTO_INCREMENT,
-  name VARCHAR(100) NOT NULL,
+  username VARCHAR(40) NOT NULL,
   PRIMARY KEY (id)
   );
 
 CREATE TABLE messages (
   id INT NOT NULL AUTO_INCREMENT,
-  text VARCHAR(100) NOT NULL,
-  created_At CHAR(30) NOT NULL,
-  user_Id INT NOT NULL,
-  chatroom CHAR(30) NOT NULL,
-  PRIMARY KEY(id),
-  FOREIGN KEY (user_Id) REFERENCES users(id)
+  username VARCHAR(30) NOT NULL,
+  message VARCHAR(200) NOT NULL,
+  roomname VARCHAR(30),
+  PRIMARY KEY (id)
 );
 
 

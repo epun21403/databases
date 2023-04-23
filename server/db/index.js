@@ -9,12 +9,13 @@ var mysql = require('mysql2');
 
 
 const connection = mysql.createConnection({
+  host: 'localhost',
   password: '',
   user: 'root',
   database: 'chat'
 });
 
-
+connection.connect();
 
 // module.exports.connection = connection;
 module.exports = connection;

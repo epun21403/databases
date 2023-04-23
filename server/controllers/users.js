@@ -2,25 +2,15 @@ var models = require('../models');
 
 module.exports = {
   get: function (req, res) {
-    models.users.getAll(res.body, function(err) {
-      console.log('control-get', res.body);
-      if (err) {
-        throw err;
-      } else {
-        res.status(200);
-        console.log('body->', res.body);
-        res.end(JSON.stringify(res.body));
-      }
+    models.users.getAll(function(err, results) {
+      res.json(results);
     });
   },
   post: function (req, res) {
-    models.users.create(req.body, function(err) {
-      if (err) {
-        throw err;
-      } else {
-        res.status(201);
-        res.end('success');
-      }
+    console.log('CONSOLE', req.body);
+    var params = [req.body.username];
+    models.users.create(params, function(err, results) {
+      res.json(results);
     });
   }
 };
